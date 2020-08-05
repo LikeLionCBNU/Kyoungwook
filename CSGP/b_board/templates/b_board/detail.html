@@ -18,4 +18,14 @@
             <a href = "{% url 'delete' post.id %}">delete</a>
         </div>
   </body>
+
+  {% for comment in post.comment_set.all %}
+<h4>{{comment.content}}</h4>
+<p>작성자 : {{post.author}}</p>
+{% endfor %}
+<form action="{% url 'comment_new' post.pk %}" method="POST">
+    {% csrf_token %}
+    {{commentForm}}
+    <input type="submit">
+</form>
 </html>
