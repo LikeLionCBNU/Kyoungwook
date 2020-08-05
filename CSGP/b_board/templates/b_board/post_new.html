@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   
+    <title>b_board new post</title>
+  </head>
+
+  <body>
+    <h1>This is b_board new post page</h1>
+    <form method = "POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type = "submit">save</button>
+    </form>
+  </body>
+</html>

@@ -15,8 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+import stock, b_board
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('stock.urls')),
+    path('stock/', include('stock.urls')),
+    path('b_board/', include('b_board.urls')),
 ]
