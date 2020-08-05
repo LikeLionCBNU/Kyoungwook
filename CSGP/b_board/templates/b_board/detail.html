@@ -22,7 +22,9 @@
   {% for comment in post.comment_set.all %}
 <h4>{{comment.content}}</h4>
 <p>작성자 : {{post.author}}</p>
+<a href = "{% url 'comment_delete' comment.pk %}">Comment Delete</a>
 {% endfor %}
+
 <form action="{% url 'comment_new' post.pk %}" method="POST">
     {% csrf_token %}
     {{commentForm}}

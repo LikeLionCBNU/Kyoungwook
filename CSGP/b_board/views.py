@@ -59,3 +59,9 @@ def comment_new(request, post_id):
             return redirect('detail', post_id=comment.post.pk)
     else:
         return redirect('home')
+
+
+def comment_delete(request, post_id):
+    comment = get_object_or_404(Comment, pk = post_id)
+    comment.delete()
+    return redirect('home')
