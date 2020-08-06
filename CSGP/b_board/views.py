@@ -56,7 +56,7 @@ def comment_new(request, post_id):
             comment.post = get_object_or_404(Post, pk=post_id)
             comment.author = request.user
             comment.save()
-            return redirect('detail', post_id=comment.post.pk)
+            return redirect('detail', post_id=post_id)
     else:
         return redirect('home')
 

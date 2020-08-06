@@ -14,21 +14,27 @@
       <h2>{{post.title}}</h2>
       <p>{{post.created_date}}</p>
       <p>{{post.text}}</p>
-      <a href="{% url 'home' %}">home</a>
+      {% if post.author == user %}
       <a href="{% url 'edit' post.id %}">edit</a>
       <a href="{% url 'delete' post.id %}">delete</a>
+      {% endif %}
+      <br />
+      <br />
     </div>
   </body>
 
+  <h5>Comments</h5>
+  <br />
   {% for comment in post.comment_set.all %}
   <h4>{{comment.content}}</h4>
-  <p>작성자 : {{post.author}}</p>
+  <pre><p>작성자 : {{comment.author}} 작성일자: {{comment.created_date}}</p>
+  {% if comment.author == user %}
   <a href="{% url 'comment_delete' comment.pk %}">Comment Delete</a>
-  {% endfor %}
-
+  {% endif %}</pre>
+  {% endfor %} {% if user.is_active %}
   <form action="{% url 'comment_new' post.pk %}" method="POST">
     {% csrf_token %} {{commentForm}}
     <input type="submit" />
   </form>
-  {% endblock %}
+  {% endif %} {% endblock %}
 </html>

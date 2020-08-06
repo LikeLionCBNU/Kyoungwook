@@ -8,6 +8,9 @@ import xmltodict
 def home(request):
     return render(request, 'index.html', {})
 
+def guide(request):
+	return render(request, 'guide.html', {})
+
 def stock(request):
 	api_requests = requests.get('https://cloud.iexapis.com/stable/stock/aapl/book?token=pk_83abfdf02247408c9e54f6370e95cfa9')
 	api_requests = requests.get('https://cloud.iexapis.com/stable/stock/aapl/book?token=pk_83abfdf02247408c9e54f6370e95cfa9')
