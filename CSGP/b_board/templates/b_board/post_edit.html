@@ -3,16 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-   
+
     <title>b_board edit post</title>
   </head>
 
   <body>
+    {% extends 'templates.html' %} {% block content %}
     <h1>This is b_board edit post page</h1>
-    <form method = "POST">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type = "submit">edit</button>
+    <form method="POST">
+      {% csrf_token %} {{ form.as_p }}
+      <button type="submit">edit</button>
     </form>
+    {% endblock %}
   </body>
 </html>

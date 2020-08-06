@@ -3,20 +3,21 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-   
+
     <title>b_board home</title>
   </head>
 
   <body>
+    {% extends 'templates.html' %} {% block content %}
     <h1>This is b_board home page</h1>
-    <a href = "{% url 'new' %}">New Post</a>
+    <a href="{% url 'new' %}">New Post</a>
     {% for post in posts.all %}
-        <div>
-            <h1><a href = "{% url 'detail' post.id %}">{{post.title}}</a></h1>
-            <h2>{{post.title}}</h2>
-            <p>{{post.created_date}}</p>
-            <p>{{post.text}}</p>
-        </div>
-    {% endfor %}
+    <div>
+      <h1><a href="{% url 'detail' post.id %}">{{post.title}}</a></h1>
+      <h2>{{post.title}}</h2>
+      <p>{{post.created_date}}</p>
+      <p>{{post.text}}</p>
+    </div>
+    {% endfor %} {% endblock %}
   </body>
 </html>

@@ -3,31 +3,32 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-   
+
     <title>b_board detail</title>
   </head>
 
   <body>
+    {% extends 'templates.html' %} {% block content %}
     <h1>This is b_board detail page</h1>
-        <div>
-            <h2>{{post.title}}</h2>
-            <p>{{post.created_date}}</p>
-            <p>{{post.text}}</p>
-            <a href = "{% url 'home' %}">home</a>
-            <a href = "{% url 'edit' post.id %}">edit</a>
-            <a href = "{% url 'delete' post.id %}">delete</a>
-        </div>
+    <div>
+      <h2>{{post.title}}</h2>
+      <p>{{post.created_date}}</p>
+      <p>{{post.text}}</p>
+      <a href="{% url 'home' %}">home</a>
+      <a href="{% url 'edit' post.id %}">edit</a>
+      <a href="{% url 'delete' post.id %}">delete</a>
+    </div>
   </body>
 
   {% for comment in post.comment_set.all %}
-<h4>{{comment.content}}</h4>
-<p>작성자 : {{post.author}}</p>
-<a href = "{% url 'comment_delete' comment.pk %}">Comment Delete</a>
-{% endfor %}
+  <h4>{{comment.content}}</h4>
+  <p>작성자 : {{post.author}}</p>
+  <a href="{% url 'comment_delete' comment.pk %}">Comment Delete</a>
+  {% endfor %}
 
-<form action="{% url 'comment_new' post.pk %}" method="POST">
-    {% csrf_token %}
-    {{commentForm}}
-    <input type="submit">
-</form>
+  <form action="{% url 'comment_new' post.pk %}" method="POST">
+    {% csrf_token %} {{commentForm}}
+    <input type="submit" />
+  </form>
+  {% endblock %}
 </html>
