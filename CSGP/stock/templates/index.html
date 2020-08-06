@@ -4,24 +4,375 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CSG</title>
+    <style>
+      .img {
+        position: relative;
+        background-image: url(/static/img/stock.png);
+        height: 70vh;
+        background-size: cover;
+      }
+
+      .img-cover {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        z-index: 1;
+      }
+
+      .img .content {
+        position: absolute;
+        top: 30%;
+        left: 20%;
+        transform: translate(-50%, -50%);
+        font-size: 5rem;
+        color: white;
+        z-index: 2;
+        text-align: center;
+      }
+      div.left {
+        width: 50%;
+        float: left;
+        box-sizing: border-box;
+      }
+      div.right {
+        border-left: solid #6b6969;
+        width: 50%;
+        float: right;
+        box-sizing: border-box;
+      }
+    </style>
   </head>
   <body>
     {% extends 'templates.html' %} {% block content %}
-
-    <h1>This is Home Page</h1>
-    <div>
-      주린이를 위한
-      <br />
-      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 주식 투자 가이드
+    <div class="img">
+      <div class="content">
+        주린이를 위한
+        <br />
+        &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 주식 투자 가이드
+      </div>
+      <div class="img-cover"></div>
     </div>
     <div>
-      <button type="button" class="btn btn-outline-primary">Primary</button>
-      <button type="button" class="btn btn-outline-secondary">Secondary</button>
-      <button type="button" class="btn btn-outline-success">Success</button>
-      <button type="button" class="btn btn-outline-danger">Danger</button>
-      <button type="button" class="btn btn-outline-warning">Warning</button>
-      <button type="button" class="btn btn-outline-info">Info</button>
-      <button type="button" class="btn btn-outline-dark">Dark</button>
+      <hr style="border: 5px double orange; " />
+    </div>
+    <div>
+      <button
+        type="button"
+        class="btn btn-outline-primary"
+        id="btn"
+        value="sale"
+        onclick="button1_click()"
+      >
+        매매
+      </button>
+      <script>
+        function button1_click () {
+          document.getElementById('out').innerHTML = '주식을 사고 파는 것!'
+        }
+      </script>
+      <button
+        type="button"
+        class="btn btn-outline-secondary"
+        id="btn"
+        vlaue="purchase"
+        onclick="button2_click();"
+      >
+        매수
+      </button>
+      <script>
+        function button2_click () {
+          document.getElementById('out').innerHTML = '주식을 사는 것!'
+        }
+      </script>
+      <button
+        type="button"
+        class="btn btn-outline-success"
+        id="btn"
+        value="3"
+        onclick="button3_click();"
+      >
+        매도
+      </button>
+      <script>
+        function button3_click () {
+          document.getElementById('out').innerHTML =
+            '보유한 주식을 파는 행위. 팔고 도망친다로 기억!'
+        }
+      </script>
+      <button
+        type="button"
+        class="btn btn-outline-danger"
+        id="btn"
+        value="4"
+        onclick="button4_click();"
+      >
+        배당
+      </button>
+      <script>
+        function button4_click () {
+          document.getElementById('out').innerHTML =
+            '발생한 이익 일부를 주식을 소유한 주주에게 분배해 주는 것으로 보통 1년에 한 번인데, 배당 유무와 액수는 회사마다!'
+        }
+      </script>
+      <button
+        type="button"
+        class="btn btn-outline-warning"
+        id="btn"
+        value="5"
+        onclick="button5_click();"
+      >
+        시가
+      </button>
+      <script>
+        function button5_click () {
+          document.getElementById('out').innerHTML =
+            '주식시장이 열릴 때 형성된 가격. 시작이라 시가!'
+        }
+      </script>
+      <button
+        type="button"
+        class="btn btn-outline-info"
+        id="btn"
+        value="6"
+        onclick="button6_click();"
+      >
+        종가
+      </button>
+      <script>
+        function button6_click () {
+          document.getElementById('out').innerHTML =
+            '장이 끝나면서 정해진 주식의 가격. 마감 종 쳤을 때 종가!'
+        }
+      </script>
+      <button
+        type="button"
+        class="btn btn-outline-dark"
+        id="btn"
+        value="7"
+        onclick="button7_click();"
+      >
+        호가
+      </button>
+      <script>
+        function button7_click () {
+          document.getElementById('out').innerHTML =
+            '파는 사람, 사는 사람이 원하는 가격!'
+        }
+      </script>
+      <button
+        type="button"
+        class="btn btn-outline-primary"
+        id="btn"
+        value="8"
+        onclick="button8_click();"
+      >
+        동시호가
+      </button>
+      <script>
+        function button8_click () {
+          document.getElementById('out').innerHTML =
+            '파는 사람과 사는 사람이 동시에 부르는 가격. 일반적으로 개장 5분전 가격!'
+        }
+      </script>
+      <button
+        type="button"
+        class="btn btn-outline-secondary"
+        id="btn"
+        value="9"
+        onclick="button9_click();"
+      >
+        장마감
+      </button>
+      <script>
+        function button9_click () {
+          document.getElementById('out').innerHTML =
+            '오전 9시에 시작한 주식시장이 오후 3시 30분에 종료되는 시점!'
+        }
+      </script>
+      <button
+        type="button"
+        class="btn btn-outline-success"
+        id="btn"
+        value="10"
+        onclick="button10_click();"
+      >
+        상한가
+      </button>
+      <script>
+        function button10_click () {
+          document.getElementById('out').innerHTML =
+            '주가 하루 최대 상승폭 30% 상승 가격!'
+        }
+      </script>
+      <button
+        type="button"
+        class="btn btn-outline-danger"
+        id="btn"
+        value="11"
+        onclick="button11_click();"
+      >
+        하한가
+      </button>
+      <script>
+        function button11_click () {
+          document.getElementById('out').innerHTML =
+            '주가 하루 최대 하락폭 30% 하락 가격!'
+        }
+      </script>
+      <button
+        type="button"
+        class="btn btn-outline-warning"
+        id="btn"
+        value="12"
+        onclick="button12_click();"
+      >
+        사모주식투자펀드
+      </button>
+      <script>
+        function button12_click () {
+          document.getElementById('out').innerHTML =
+            '소수의 투자자들로부터 자금을 모아 주식이나, 채권 등에 운용하는 펀드!'
+        }
+      </script>
+      <button
+        type="button"
+        class="btn btn-outline-info"
+        id="btn"
+        value="13"
+        onclick="button13_click();"
+      >
+        공매도
+      </button>
+      <script>
+        function button13_click () {
+          document.getElementById('out').innerHTML =
+            '없는 것을 판다’라는 뜻. 주식이나 채권을 가지고 있지 않은 상태에서 매도주문을 내는 것을 말합니다. 결제일이 매수 다다음 날이기 때문에 이런 일이 발생! 보유하지 않은 주식이나 채권을 판 후 결제일이 돌아오는 3일 안에 해당 주식이나 채권을 구해 매입자에게 돌려주면 되기에 이틀 후 주가 하락이 예상될 때, 시세차익을 노리는 투자자가 활용!'
+        }
+      </script>
+      <button
+        type="button"
+        class="btn btn-outline-dark"
+        id="btn"
+        value="14"
+        onclick="button14_click();"
+      >
+        서킷브레이커
+      </button>
+      <script>
+        function button14_click () {
+          document.getElementById('out').innerHTML =
+            '주식시장의 일시적인 거래 중단 제도를 일컫는데요, 코스피나 코스닥지수가 전일 대비 10% 이상 폭락한 상태가 1분간 지속하는 경우 발동됩니다. 과열된 주식시장을 진정시키기 위한 쿨다운 타임!'
+          break
+        }
+      </script>
+      <button
+        type="button"
+        class="btn btn-outline-primary"
+        id="btn"
+        value="15"
+        onclick="button15_click();"
+      >
+        미수금
+      </button>
+      <script>
+        function button15_click () {
+          document.getElementById('out').innerHTML =
+            '투자자들이 외상으로 주식을 매입한 다음 날, 즉 수도결제일에 결제자금을 계좌에 입금하지 않아 발생한 외상주식매입대금!'
+        }
+      </script>
+      <button
+        type="button"
+        class="btn btn-outline-secondary"
+        id="btn"
+        value="16"
+        onclick="button16_click();"
+      >
+        손절매
+      </button>
+      <script>
+        function button16_click () {
+          document.getElementById('out').innerHTML =
+            '주가가 단기간에 상승할 가능성이 없거나 현재보다 더욱 하락할 것이 예상돼 손해를 감수하면서도 가지고 있는 주식을 매입 가격 이하로 파는 것!'
+        }
+      </script>
+      <button
+        type="button"
+        class="btn btn-outline-info"
+        id="btn"
+        value="17"
+        onclick="button17_click();"
+      >
+        수도결제일
+      </button>
+      <script>
+        function button17_click () {
+          document.getElementById('out').innerHTML = '주식을 거래한 다음 날!'
+        }
+      </script>
+      <button
+        type="button"
+        class="btn btn-outline-dark"
+        id="btn"
+        value="18"
+        onclick="button18_click();"
+      >
+        PER
+      </button>
+      <script>
+        function button18_click () {
+          document.getElementById('out').innerHTML =
+            'Price earning ratio 주가수익비율은 주가를 주당순이익으로 나눈 값. 주식가격이 똑같이 만 원인 A, B 회사의 순이익이 1주당 각각 1000원, 2000원이라면 A회사의 PER은 10, B회사의 PER은 5입니다. 다시 말해 PER이 낮을수록 순익이 많은 회사!'
+        }
+      </script>
+      <button
+        type="button"
+        class="btn btn-outline-success"
+        id="btn"
+        value="19"
+        onclick="button19_click();"
+      >
+        PSR
+      </button>
+      <script>
+        function button19_click () {
+          document.getElementById('out').innerHTML =
+            'Price Sales Ratio 주가매출비율은 현재 주가를 1주당 매출액으로 나눈 값이에요. 어떤 주식의 가격이 주당 매출액에 비해 높을수록 PSR은 1.0 이상, 반면 현재 주가가 주당 매출액보다 낮다면 PSR은 1.0 아래입니다. PSR 역시 낮을수록 저평가된 주식!'
+        }
+      </script>
+      <button
+        type="button"
+        class="btn btn-outline-danger"
+        id="btn"
+        value="20"
+        onclick="button20_click();"
+      >
+        PBR
+      </button>
+      <script>
+        function button20_click () {
+          document.getElementById('out').innerHTML =
+            'Price Book-value Ratio 주가순자산비율은 주가를 주당순자산가치로 나눈 비율로 주가와 1주당 순 자산을 비교한 수치입니다. 쉽게 말해 회사 재무상태와 주가의 관계를 보여주는 숫자!'
+        }
+      </script>
+    </div>
+    <br />
+    <div>
+      <p id="out"></p>
+    </div>
+    <div>
+      <hr style="color: black;";">
+    </div>
+    <div>
+      <div class="left">news자리</div>
+      <div class="right">
+        게시판자리, 왜 안뜨지? {% for post in posts.all %}
+        <div>
+          <h1><a href="{% url 'detail' post.id %}">{{post.title}}</a></h1>
+          <h2>{{post.title}}</h2>
+        </div>
+        {% endfor %}
+      </div>
     </div>
     {% endblock %}
   </body>
