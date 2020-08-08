@@ -24,7 +24,6 @@
 
   <body class="sb-nav-fixed">
     {% extends 'templates.html' %} {% block content %}
-    <a href="{% url 'new' %}">New Post</a>
     <div id="layoutSidenav_content">
       <main>
         <div class="container-fluid">
@@ -58,6 +57,7 @@
                 </tbody>
                 {% endfor %}
               </table>
+              <a href="{% url 'new' %}">New Post</a>
             </div>
           </div>
         </div>

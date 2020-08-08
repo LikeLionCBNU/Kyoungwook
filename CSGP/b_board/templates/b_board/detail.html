@@ -9,32 +9,39 @@
 
   <body>
     {% extends 'templates.html' %} {% block content %}
-    <h1>This is b_board detail page</h1>
     <div>
-      <h2>{{post.title}}</h2>
+      <h1>{{post.title}}</h1>
+      <h3>{{post.text}}</h3>
       <p>{{post.created_date}}</p>
-      <p>{{post.text}}</p>
       {% if post.author == user %}
-      <a href="{% url 'edit' post.id %}">edit</a>
-      <a href="{% url 'delete' post.id %}">delete</a>
+      <pre><a href="{% url 'home' %}">Home</a>  <a href="{% url 'edit' post.id %}">Edit</a>  <a href="{% url 'delete' post.id %}">Delete</a></pre>
       {% endif %}
       <br />
-      <br />
+
     </div>
   </body>
 
   <h5>Comments</h5>
+
   <br />
   {% for comment in post.comment_set.all %}
-  <h4>{{comment.content}}</h4>
-  <pre><p>작성자 : {{comment.author}} 작성일자: {{comment.created_date}}</p>
-  {% if comment.author == user %}
-  <a href="{% url 'comment_delete' comment.pk %}">Comment Delete</a>
-  {% endif %}</pre>
-  {% endfor %} {% if user.is_active %}
+  <h5>{{comment.content}}</h5>
+  <pre><p>작성자: {{comment.author}}   작성일자: {{comment.created_date}}</p>   {% if comment.author == user %} <a href="{% url 'comment_delete' comment.pk %}">Comment Delete</a> {% endif %}</pre>
+  {% endfor %} 
+  
+  {% if user.is_active %}
   <form action="{% url 'comment_new' post.pk %}" method="POST">
-    {% csrf_token %} {{commentForm}}
-    <input type="submit" />
+    <div class="card my-4">
+      <h5 class="card-header">Leave a Comment:</h5>
+      <div class="card-body">
+          <form method="POST">
+    {% csrf_token %}
+    {{commentForm}}
+    <div class="form-group">{{ comment_form }}</div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+      </div>
+    </div>
   </form>
   {% endif %} {% endblock %}
 </html>
