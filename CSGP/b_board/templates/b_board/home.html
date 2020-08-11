@@ -57,7 +57,9 @@
                 </tbody>
                 {% endfor %}
               </table>
+              {% if user.is_active %}
               <a href="{% url 'new' %}">New Post</a>
+              {% endif %}
             </div>
           </div>
         </div>

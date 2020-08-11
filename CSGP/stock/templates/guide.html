@@ -4,11 +4,106 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>stock</title>
+
+    <style>
+      table {
+        width: 100%;
+        border-top: 1px solid #444444;
+        border-collapse: collapse;
+      }
+      th,
+      td {
+        border-bottom: 1px solid #444444;
+        padding: 10px;
+      }
+    </style>
   </head>
   <body>
     {% extends 'templates.html' %} {% block content %}
     <div>
-      <img src="/static/img/prepare.jpg"
+      <h1>주린이를 위한 step by step 투자 가이드</h1>
+      <img
+        src="https://lh3.googleusercontent.com/NmAWnR6cVZTkRMCuGgWnj0hahZqhzxrPGAqxOp0DuqVe-7PDwwHxhSP7L_lgvKVkI5qd"
+      /><br />
+      <br />
+      <h3>주식 계좌 만들기</h3>
+      <h5>
+        1. 주식 투자를 하기 위해서는 <u>주식 계좌</u>가 필요하다. <br />
+        2. 주식 계좌는 증권사에서 만들 수 있다. <br />
+        3. 각 증권사별로 거래수수료와 혜택이 다르기 때문에 자신에게 맞는
+        증권사를 선택해 계좌를 만든다.
+      </h5>
+      <br />
+      <table>
+        <thead>
+          <tr>
+            <th>증권사</th>
+            <th>거래수수료 무료 기간</th>
+            <th>무료 혜택 범위</th>
+            <th>유관기관제비용</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <a href="https://www.miraeassetdaewoo.com/" target="_blank"
+                >미래에셋대우</a
+              >
+            </td>
+            <td>~2030년 7월</td>
+            <td>국내주식</td>
+            <td>0.0041</td>
+          </tr>
+          <tr>
+            <td>
+              <a href="https://www.truefriend.com/main/Main.jsp" target="_blank"
+                >한국투자증권</a
+              >
+            </td>
+            <td>평생</td>
+            <td>국내주식, ETF, ETN, ELW</td>
+            <td>0.0036</td>
+          </tr>
+          <tr>
+            <td>
+              <a href="https://www.shinhaninvest.com/" target="_blank"
+                >신한금융투자</a
+              >
+            </td>
+            <td>평생</td>
+            <td>국내주식, ETF, ETN, ELW, K-OTC</td>
+            <td>0.0045</td>
+          </tr>
+          <tr>
+            <td>
+              <a href="https://www.kbsec.com/go.able" target="_blank">KB증권</a>
+            </td>
+            <td>평생</td>
+            <td>국내주식, ETF, ETN, ELW, K-OTC, KONEX</td>
+            <td>0.0044</td>
+          </tr>
+          <tr>
+            <td>
+              <a href="https://www.samsungpop.com/index.jsp" target="_blank"
+                >삼성증권</a
+              >
+            </td>
+            <td>평생</td>
+            <td>국내주식</td>
+            <td>0.0036</td>
+          </tr>
+        </tbody>
+      </table>
+      <br />
+      <br />
+      <h3>매도/매수하기</h3>
+      <h5>
+        1. 주식 계좌를 만들었으면 매수를 하기 위한 예수금을 넣어야 한다.<br />
+        2. 앞서 만든 계좌에 투자할 만큼 예수금을 넣는다.<br />
+        3. 각 기업의 재무상태표를 확인하며 앞으로 성장 가능성이 높은 회사의
+        주식을 매수한다.<br />
+        4. 주식이 오르기를 기도한다.<br />
+      </h5>
     </div>
     {% endblock %}
   </body>

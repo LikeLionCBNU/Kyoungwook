@@ -3,6 +3,7 @@ from .models import Category
 import requests
 import json
 import xmltodict
+import pandas as pd
 
 # Create your views here.
 def home(request):
@@ -13,7 +14,6 @@ def guide(request):
 
 def stock(request):
 	api_requests = requests.get('https://cloud.iexapis.com/stable/stock/aapl/book?token=pk_83abfdf02247408c9e54f6370e95cfa9')
-	api_requests = requests.get('https://cloud.iexapis.com/stable/stock/aapl/book?token=pk_83abfdf02247408c9e54f6370e95cfa9')
 	krx_api_requests = requests.get('http://asp1.krx.co.kr/servlet/krx.asp.XMLSise?code=035420').content.strip()
 
 	try :
@@ -21,6 +21,8 @@ def stock(request):
 		krx_api_to_str =  json.dumps(xmltodict.parse(krx_api_requests))
 		krx_api_to_str = krx_api_to_str.replace('@','')
 		krx_api = json.loads(krx_api_to_str)
+		#db = pd.DataFrame(krx_api, index=["TBL_StockInfo"])
+		#db.to_csv('excel_test.csv', mode = 'w', encoding = 'euc-kr')
 
 	except Exception as e:
 		api = "error"

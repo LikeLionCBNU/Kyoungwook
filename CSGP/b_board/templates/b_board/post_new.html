@@ -9,8 +9,12 @@
 
   <body>
     {% extends 'templates.html' %} {% block content %}
-    <h1>This is b_board new post page</h1>
+    <br />
+    <br />
+    <h2>New Post</h2>
+    <a href="{% url 'home' %}">Home</a>
     <form method="POST">
+      <br />
       {% csrf_token %} {{ form.as_p }}
       <button type="submit">save</button>
     </form>
