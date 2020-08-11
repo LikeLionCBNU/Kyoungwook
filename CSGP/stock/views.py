@@ -13,6 +13,10 @@ def guide(request):
 	return render(request, 'guide.html', {})
 
 def stock(request):
+	stock = Category.objects
+	return render(request, 'stock.html', {'stoc': stock})
+"""
+def stock(request):
 	api_requests = requests.get('https://cloud.iexapis.com/stable/stock/aapl/book?token=pk_83abfdf02247408c9e54f6370e95cfa9')
 	krx_api_requests = requests.get('http://asp1.krx.co.kr/servlet/krx.asp.XMLSise?code=035420').content.strip()
 
@@ -28,3 +32,4 @@ def stock(request):
 		api = "error"
 
 	return render(request, 'stock.html', {'stock_info' : api['quote'], 'krx_info' : krx_api['stockprice']['TBL_StockInfo'] })
+"""

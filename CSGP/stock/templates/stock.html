@@ -7,7 +7,7 @@
   </head>
   <body>
     {% extends 'templates.html' %} {% block content %}
-
+    <!--
     <h2>{{ stock_info.companyName }}</h2>
     <table class="table table-hover">
       <thead>
@@ -39,12 +39,12 @@
     </table>
 
     <br /><br />
-
-    <h2>{{ krx_info.JongName }}</h2>
+    -->
+    <h2>국내 주식</h2>
     <table class="table table-hover">
       <thead>
         <tr>
-          <th scope="col">#</th>
+          <th scope="col">&#8361;</th>
           <th scope="col">Last Price</th>
           <th scope="col">Open Price</th>
           <th scope="col">Close Price</th>
@@ -56,20 +56,21 @@
         </tr>
       </thead>
       <tbody>
+        {% for stock in stoc.all %}
         <tr>
-          <th scope="row">1</th>
-          <td>&#8361;{{ krx_info.CurJuka }}</td>
-          <td>&#8361;{{ krx_info.StartJuka }}</td>
-          <td>&#8361;{{ krx_info.PrevJuka }}</td>
-          <td>&#8361;{{ krx_info.HighJuka }}</td>
-          <td>&#8361;{{ krx_info.LowJuka }}</td>
-          <td>{{ krx_info.Volume }}</td>
-          <td>&#8361;{{ krx_info.High52 }}</td>
-          <td>&#8361;{{ krx_info.Low52 }}</td>
+          <td>{{ stock.Name }}</td>
+          <td>{{ stock.Current_Price }}</td>
+          <td>{{ stock.Start_Price }}</td>
+          <td>{{ stock.Prev_Price }}</td>
+          <td>{{ stock.High_Price }}</td>
+          <td>{{ stock.Low_Price }}</td>
+          <td>{{ stock.Trade_Volume }}</td>
+          <td>{{ stock.Week_52_High }}</td>
+          <td>{{ stock.Week_52_Low }}</td>
         </tr>
+        {% endfor %}
       </tbody>
     </table>
-
     {% endblock %}
   </body>
 </html>
