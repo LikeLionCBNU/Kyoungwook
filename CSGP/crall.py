@@ -21,13 +21,13 @@ def stock(stock_code):
         print(perfect)
 
         if perfect['JongName'] != '':
-            if not os.path.exists('test.csv'):
-                with open('test.csv','w') as f:
+            if not os.path.exists('stock.csv'):
+                with open('stock.csv','w') as f:
                     w = csv.writer(f)
                     w.writerow(perfect.keys())
                     w.writerow(perfect.values())
             else:
-                with open('test.csv','a') as f:
+                with open('stock.csv','a') as f:
                     w = csv.writer(f)
                     w.writerow(perfect.values())
         ##db = pd.DataFrame(krx_api, index=['stockprice']['TBL_StockInfo'])
