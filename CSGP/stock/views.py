@@ -15,6 +15,8 @@ def guide(request):
 def stock(request):
 	stock = Category.objects
 	return render(request, 'stock.html', {'stoc': stock})
+
+## 국내, 국외, 테마(model에 category는 만들어놈,가능하다면) 카테고리화 시킬 것
 """
 def stock(request):
 	api_requests = requests.get('https://cloud.iexapis.com/stable/stock/aapl/book?token=pk_83abfdf02247408c9e54f6370e95cfa9')

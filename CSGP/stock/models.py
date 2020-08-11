@@ -24,7 +24,7 @@ class Category(models.Model):
     Face_Price = models.CharField(max_length= 100, blank=True, null=True)
     register_date = models.DateTimeField(default = timezone.now)
 
-    
-
     def __str__(self):
         return self.Name
+
+## 각 종목에 들어가서 댓글 달 수 있는 기능 차후 추가
