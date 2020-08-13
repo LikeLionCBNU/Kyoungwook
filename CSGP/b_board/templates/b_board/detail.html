@@ -13,9 +13,9 @@
     <div>
       <h1>{{post.title}}</h1>
       <h3>{{post.text}}</h3>
-      <pre><p>{{post.created_date}}  <a href="{% url 'home' %}">Home</a>  
+      <pre><p>{{post.created_date}}  <a href="{% url 'home' %}">Home</a>  <a href="{% url 'edit' post.id %}">Edit</a>  <a href="{% url 'delete' post.id %}">Delete</a></p></pre> 
         {% if post.author == user %} 
-        <a href="{% url 'edit' post.id %}">Edit</a>  <a href="{% url 'delete' post.id %}">Delete</a></p></pre>
+        
       {% endif %}
       <br />
     </div>
